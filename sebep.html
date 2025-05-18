@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aybüke'yi Sevme Nedenlerim</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+      transition: background-color 0.3s, transform 0.2s;
+      z-index: 1000;
+    }
+    .back-btn:hover {
+      background-color: #ff85c1;
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(255, 105, 180, 0.7);
+    }
+    .back-btn svg {
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      width: 24px;
+      height: 24px;
+    }
+    h1 {
+      color: #c71585;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background-color: #ff69b4;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 40px;
+    }
+    .btn:hover {
+      background-color: #db3f89;
+    }
+    .reason {
+      margin-bottom: 40px;
+    }
+    .reason img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .reason p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #800080;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="back-btn" aria-label="Geri Git" onclick="history.back()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+
+  <h1>Aybüke'yi Sevmemin 8 Nedeni</h1>
+  <button id="playPause" class="btn">MÜZİĞİ OYNAT SEVGİLİM</button>
+
+  <div class="reason">
+    <img src="sebep7.jpg" alt="Sebep 1">
+    <p>1-) Çok güzel gülüyorsun</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep12.jpg" alt="Sebep 2">
+    <p>2-) Çok güzel bakıyorsun</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep5.jpg" alt="Sebep 3">
+    <p>3-) Çok akıllısın</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep9.jpg" alt="Sebep 4">
+    <p>4-) Harika piyano çalıyorsun</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep6.jpg" alt="Sebep 5">
+    <p>5-) Kokun çok güzel</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep8.jpg" alt="Sebep 6">
+    <p>6-) Enerjin çok yüksek</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep10.jpg" alt="Sebep 7">
+    <p>7-) Yanıma çok yakışıyorsun</p>
+  </div>
+
+  <div class="reason">
+    <img src="sebep3.jpg" alt="Sebep 8">
+    <p>8-) Ve daha sayamadığım binlerce sebep</p>
+  </div>
+
+  <script>
+    const audio = new Audio('ses3.mp3');
+    audio.loop = true;
+    audio.muted = true;
+
+    window.addEventListener('load', () => {
+      audio.play().catch(() => {
+        console.log("Tarayıcı otomatik çalmayı engelledi.");
+      });
+    });
+
+    const btn = document.getElementById('playPause');
+    let playing = false;
+
+    btn.addEventListener('click', () => {
+      if (!playing) {
+        audio.muted = false;
+        audio.play();
+        btn.textContent = 'MÜZİĞİ DURDUR';
+        playing = true;
+      } else {
+        audio.pause();
+        btn.textContent = 'MÜZİĞİ OYNAT SEVGİLİM';
+        playing = false;
+      }
+    });
+  </script>
+
+</body>
+</html>

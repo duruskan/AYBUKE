@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canımın İçine</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .headline {
+      margin-top: 30px;
+      font-size: 2.2rem;
+      color: #c71585;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px 20px 20px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #c71585;
+      margin-top: 40px;
+      font-size: 3rem;
+    }
+
+    .memory {
+      margin: 20px auto;
+      padding: 20px;
+      background: #ffe4e1;
+      border-radius: 15px;
+      max-width: 500px;
+      box-sizing: border-box;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #db3f89;
+    }
+
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .menu-buttons button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 14px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 250px;
+    }
+
+    .menu-buttons button:hover {
+      background-color: #db3f89;
+    }
+
+    @media (max-width: 480px) {
+      .headline {
+        font-size: 1.6rem;
+        margin-top: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-top: 30px;
+      }
+      .container {
+        padding: 20px 10px;
+      }
+      .memory {
+        max-width: 100%;
+        padding: 15px;
+      }
+      .btn {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="headline">Önce burayı incele</div>
+
+  <div class="menu-buttons">
+    <button onclick="window.location.href='dogum.html'">Aybüke'nin Doğumu</button>
+    <button onclick="window.location.href='samet.html'">Samet'in Gelişi</button>
+    <button onclick="window.location.href='sebep.html'">7 Sebep</button>
+    <button onclick="window.location.href='aybuke.html'">Aybüke olmak</button>
+  </div>
+
+  <div class="container">
+    <h1>Karar Vakti</h1>
+    <div class="memory">
+      İçinden geldiği gibi, sadece kalbini dinle...
+    </div>
+    <button class="btn" onclick="window.location.href='burayabas.html'">Buraya Bas</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Affet Beni Aybüke'm</title>
+
+  <!-- EmailJS ve Konfeti -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("az749MLKoOu82a9P4"); // EmailJS User ID
+    })();
+
+    function handleYes() {
+      confetti(); // İlk konfeti
+
+      // Ses5.mp3 çal
+      document.getElementById("yes-sound").play();
+
+      emailjs.send("service_j3i6l5k", "template_9ewx4il", {
+        to_name: "Sen",
+        from_name: "Aybüke",
+        message: "Evet butonuna bastı!"
+      }).then(
+        function (response) {
+          console.log("E-posta gönderildi");
+        },
+        function (error) {
+          console.error("E-posta gönderilemedi", error);
+        }
+      );
+
+      document.getElementById("firstQuestion").style.display = "none";
+      document.getElementById("secondQuestion").style.display = "block";
+    }
+
+    function handleNo() {
+      document.getElementById("emoji").style.display = "block";
+    }
+
+    function handleShowTicket() {
+      document.getElementById("secondButtons").style.display = "none";
+      document.getElementById("ticketImage").style.display = "block";
+      document.getElementById("sadEmoji2").style.display = "none";
+
+      // Büyük konfeti patlaması
+      confetti({
+        particleCount: 300,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function handleSadFace() {
+      document.getElementById("secondButtons").style.display = "none";
+      document.getElementById("ticketImage").style.display = "none";
+      document.getElementById("sadEmoji2").style.display = "block";
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 50px 20px;
+      color: #4b0082;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      font-size: 1.5rem;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .yes {
+      background-color: #7bed9f;
+    }
+
+    .no {
+      background-color: #ff6b81;
+      color: white;
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background-color: #ff85c1;
+      transform: scale(1.1);
+    }
+
+    .back-btn svg {
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      width: 20px;
+      height: 20px;
+    }
+
+    #secondQuestion {
+      display: none;
+    }
+
+    #ticketImage {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #ticketImage img {
+      width: 700px;
+      max-width: 95%;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    #sadEmoji2 {
+      display: none;
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ses Oynatıcı (gizli) -->
+  <audio id="yes-sound" src="ses5.mp3"></audio>
+
+  <!-- Geri Butonu -->
+  <button class="back-btn" onclick="history.back()" aria-label="Geri Dön">
+    <svg viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  </button>
+
+  <!-- İlk Soru -->
+  <div id="firstQuestion">
+    <h1>Aybüke, lütfen beni affeder misin?</h1>
+    <button class="btn yes" onclick="handleYes()">Evet</button>
+    <button class="btn no" onclick="handleNo()">Hayır</button>
+    <div class="emoji" id="emoji">😢</div>
+  </div>
+
+  <!-- İkinci Soru -->
+  <div id="secondQuestion">
+    <h1>Benimle Lüküs Hayat oyununa gelir misin?</h1>
+    <div id="secondButtons">
+      <button class="btn yes" onclick="handleShowTicket()">Evet</button>
+      <button class="btn no" onclick="handleSadFace()">Hayır</button>
+    </div>
+    <div id="ticketImage">
+      <img src="tiyatro.jpg" alt="Bilet">
+    </div>
+    <div id="sadEmoji2">😢</div>
+  </div>
+
+</body>
+</html>
